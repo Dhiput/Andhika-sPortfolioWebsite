@@ -23,6 +23,7 @@ assets/img/xp/*.webp               — 7 gambar kartu Track Record, 1800 px
   ringan dan bergoyang kecil, dengan bayangan; kembali saat kursor pergi.
   Di mode kurangi-gerak cuma terangkat 4 px tanpa goyang.
 - **YOU'RE HERE** sekarang tepat di sebelah pin LV 4.
+- Label "HTML · CSS · JavaScript · build" di footer dihapus; footer tinggal hak cipta.
 - **Ukuran keempat pulau berbeda.** Tata letak jadi dua kolom (kiri LV1/LV4,
   kanan LV2/LV3) dengan garis pantai yang tingginya beda tiap kolom. Bobot:
   1 karya = 1, 1 peran = 2, 1 bukti (klip/foto) = 0,5; luas ∝ bobot^0,6.
