@@ -1,510 +1,147 @@
-# Website Portfolio Andhika Putradhitya — v20
+# Website Portfolio Andhika Putradhitya — v25
 
 ## Isi paket
 
 ```
-index.html                          — seluruh situs (CSS, JS, gambar, CV ter-embed)
-assets/video/showcase.mp4           — showreel, 5,0 MB, 720×854, 48 detik
+index.html                         — seluruh situs (CSS, JS, thumbnail, CV ter-embed)
+assets/video/showcase.mp4          — showreel hero, 5,0 MB
+assets/video/tsof-trailer.mp4      — trailer blok sorotan The Soul of Founder, 1,1 MB
+assets/video/kahf-imx_v1.mp4       — Tanya Kahf Bro (IMX), 5,0 MB
+assets/video/kahf-imx_v2.mp4       — Tanya Kahf Bro (IMX), 3,6 MB
+assets/img/kahf/*.webp             — 24 gambar bukti Paragon (tile + penampil), resolusi penuh
+assets/img/xp/*.webp               — 7 gambar kartu Track Record, 1800 px
 ```
 
-**Keduanya harus tetap satu folder.** Frame poster videonya sudah ter-embed
-sebagai data URI di dalam HTML, jadi berkas `showcase-poster.jpg` terpisah
-tidak lagi diperlukan. `index.html` memanggil videonya lewat path
-relatif `assets/video/showcase.mp4`.
+**Seluruh folder harus ikut.** Deploy: `vercel --prod` dari dalam folder ini
+(pilih *Link to existing project*), atau seret folder ke app.netlify.com/drop.
 
-## Cara publikasi
+## Perubahan v25
 
-Seret **seluruh folder** ini ke [app.netlify.com/drop](https://app.netlify.com/drop).
-Jangan seret `index.html` saja — videonya tidak akan ikut dan showreel-nya kosong
-(poster-nya tetap tampil, tapi tidak akan pernah berjalan).
+- **Pulau berjarak 12 px** ("air" selebar 12 px di antara keping), bentuk
+  gabungannya tetap satu persegi utuh; jembatan titik-titik menyeberangi air.
+- **Hover:** hanya pulau yang disentuh kursor (beserta labelnya) mengambang
+  ringan dan bergoyang kecil, dengan bayangan; kembali saat kursor pergi.
+  Di mode kurangi-gerak cuma terangkat 4 px tanpa goyang.
+- **YOU'RE HERE** sekarang tepat di sebelah pin LV 4.
+- **Ukuran keempat pulau berbeda.** Tata letak jadi dua kolom (kiri LV1/LV4,
+  kanan LV2/LV3) dengan garis pantai yang tingginya beda tiap kolom. Bobot:
+  1 karya = 1, 1 peran = 2, 1 bukti (klip/foto) = 0,5; luas ∝ bobot^0,6.
+  Hasil: 2023 (28) > 2026 (19) > 2025 (7) > 2024 (6).
 
+## Perubahan v24
 
+Roadmap jadi **puzzle pulau**: empat keping dengan garis pantai bergelombang
+dan satu tab puzzle di tiap sambungan; digabung jadi satu persegi utuh. Luas
+keping tetap mengikuti bobot tahun (karya + peran + bukti), tapi angkanya
+tidak lagi ditampilkan. Tiap keping beda nada warna. Jalur antar-level jadi
+"jembatan" titik-titik yang menyeberang di tab puzzle — semuanya sama persis:
+panjang 56 px, 5 titik, satu penanda kuning di ujung. Di layar sempit keping
+berubah jadi empat pita bertumpuk dengan aturan yang sama.
 
+## Perubahan v23
 
+1. **Halaman Paragon jadi satu kotak per sorotan, bukti diutamakan.** Teks di
+   kolom kiri yang ramping, galeri di kanan dengan kartu setinggi panel
+   (±490 px di desktop, sebelumnya ±170 px). Halaman sebelum/sesudah hanya
+   mengintip tipis — efek drum 3D tetap ada.
+2. **Tidak ada lagi yang menutupi wajah.** Tombol play besar di tengah diganti
+   ikon kecil di sudut kanan-bawah; keterangan dan angka (260K+ dst.) pindah
+   ke bawah gambar. Ukuran kartu dihitung dari ruang yang tersedia, gambar
+   melebar dikecilkan sampai muat utuh — tidak ada yang dipotong paksa.
+3. **ASEAN Cup:** tile Instagram sekarang memakai gambar slide 2 itu sendiri,
+   tanpa tulisan "slide 2".
+4. **Foto tidak pecah lagi.** Penyebabnya: tile memakai thumbnail 360 px yang
+   ditanam di HTML lalu diperbesar 2–3×. Sekarang tiap tile memakai file
+   resolusi penuh (foto 1600 px, cover TikTok 1280 px) yang diambil lebih
+   dulu saat halaman menganggur. Kartu Track Record juga naik dari 900 px ke
+   1800 px. Bonus: HTML turun dari 3,2 MB ke 2,3 MB.
+5. **Roadmap jadi papan level ala game.** Baris 1 kiri→kanan, turun, baris 2
+   kanan→kiri, disambung jalur titik-titik; mengisi lebar kolom. Lebar dan
+   ukuran huruf tiap kotak = bobot tahun itu di portofolio (karya + peran +
+   bukti), dihitung otomatis dari data:
 
+   | Tahun | Isi | Bobot |
+   |---|---|---|
+   | 2023 | 22 karya · 3 peran | 25 |
+   | 2024 | 6 karya | 6 |
+   | 2025 | 5 karya · 1 peran | 6 |
+   | 2026 | 1 karya · 3 peran · 24 bukti | 28 |
 
+## Perubahan v22
 
+### 1. ParagonCorp masuk Track Record — dengan pager 3D
 
+Kartu pertama di Track Record sekarang ParagonCorp (Social Media Management
+Intern, Kahf · Sep 2026 — Present), thumbnail kolase Kahf. Kartunya bertuliskan
+"Explore 4 highlights".
 
-## Perubahan v20
+Saat dibuka, panelnya tidak berisi daftar poin biasa tapi **empat halaman
+bertumpuk vertikal** — satu halaman per poin CV:
 
-**CV ATS diganti dengan revisi terbaru.** Yang berubah di dalam PDF-nya hanya
-satu baris: MAP Active dari *"March 2026 – Present"* jadi
-*"March 2026 – September 2026"*. Sisanya identik — diperiksa dengan
-membandingkan hasil ekstraksi teks kedua PDF, dan itu satu-satunya baris yang
-berbeda.
-
-CV-nya tertanam sebagai data URI di `PROFILE.cv`, jadi tidak ada berkas PDF
-terpisah yang bisa ketinggalan saat upload. Tombol "View CV" membukanya lewat
-Blob URL karena Chrome memblokir navigasi langsung ke `data:application/pdf`.
-
-**Tanggal di situs disamakan dengan CV.** Kartu MAP Active tadinya berbunyi
-"Mar 2026 — Present". Recruiter yang membuka situs dan CV berdampingan akan
-melihat dua tanggal akhir yang berbeda untuk peran yang sama — itu yang paling
-cepat menimbulkan pertanyaan. Sekarang keduanya berbunyi September 2026.
-
-**Label "Current" dibuat kedaluwarsa sendiri.** Kalau ditulis mati, label itu
-tetap berbunyi "Current" di bulan Oktober padahal magangnya sudah selesai.
-Sekarang: `new Date() <= new Date(2026, 8, 30)` — setelah 30 September label
-berganti sendiri jadi "Internship" tanpa perlu ada yang mengedit berkasnya.
-
-**"Six roles across four years" jadi "Six roles since 2023".** Ini kalimat
-statis yang lolos dari perbaikan v16 — waktu itu hanya kotak statistik yang
-dibuat menghitung otomatis. Jan 2023 ke Sep 2026 adalah 3 tahun 8 bulan, bukan
-empat tahun. Bentuk "since 2023" tidak akan pernah basi.
-
-**Teks galat showreel jadi Bahasa Inggris.** Kartu `.reel__err` masih berbunyi
-"Video tidak ditemukan..." — tersembunyi selama videonya normal, tapi kalau
-sekali saja gagal dimuat, muncul Bahasa Indonesia di tengah situs yang
-seluruhnya Inggris. Sekarang: *"Showreel unavailable. Make sure this file is
-uploaded in the same folder."*
-
-### Hasil uji v20
-
-Chrome headless, 1440px dan 390px.
-
-| Pemeriksaan | Hasil |
-|---|---|
-| Error JavaScript | **0** di kedua ukuran |
-| Kartu karya | 35 |
-| Kartu pengalaman | 6 |
-| Periode MAP Active | `Mar 2026 — Sep 2026` |
-| PDF ter-embed | tepat **1** — CV lama tidak tersisa |
-| Overflow horizontal | tidak ada |
-| Kartu kontak | 5 · nomor telepon **0** · "Pancoran"/"16433" **0** |
-| Teks Indonesia yang terlihat | **0** (sisa hanya komentar di dalam kode) |
-
-### Catatan soal video
-
-Kalau showreel-nya tidak jalan saat diuji di alat otomatis, periksa dulu
-codec-nya sebelum menyalahkan situsnya. Chromium versi sumber-terbuka tidak
-menyertakan lisensi H.264 — `canPlayType('video/mp4; codecs="avc1.4D401F"')`
-mengembalikan string kosong, dan rantai empat sumbernya habis lalu kartu galat
-muncul. Berkas MP4-nya sendiri sudah diverifikasi: H.264 + AAC, 720×854,
-48,4 detik, `+faststart`. Chrome, Safari, Edge, dan Firefox biasa memutarnya
-tanpa masalah. Logika rantai sumbernya juga diuji ulang memakai berkas WebM di
-kode yang sama persis — `loadedmetadata` terpanggil, `readyState` 4. Rantainya
-tidak bermasalah.
-
-## Perubahan v19
-
-**Lokasi dipersingkat** dari "Pancoran Mas, Depok, West Java 16433" jadi
-**"Depok, West Java"** — di kartu kontak dan di data terstruktur Schema.org.
-
-Kelurahan dan kode pos ikut dibuang dari blok JSON-LD di `<head>` karena
-alasan yang sama dengan nomor telepon di v18: bagian itu tidak terlihat mata
-tapi justru yang dipanen mesin. Kalau hanya kartunya yang diperpendek, alamat
-lengkapnya tetap terbuka untuk crawler.
-
-Efek sampingnya bagus: nilainya sekarang di bawah 22 karakter, jadi tidak lagi
-kena kelas `.citem--long` dan tampil satu baris dengan ukuran huruf penuh —
-sebelumnya pecah jadi dua baris.
-
-Sisa "Pancoran": **0** · sisa "16433": **0**
-
-## Perubahan v18
-
-1. **#CariMukaLo tersambung ke videonya.** Sebelumnya entri ini bertipe
-   `gallery` tanpa tautan apa pun — kartunya bisa diklik tapi tidak membuka
-   apa-apa selain gambar diam. Sekarang bertipe `drive` dan membuka video
-   yang sesuai, sama seperti karya video lainnya. Diuji: lightbox terbuka
-   dengan iframe yang benar, dan file Drive-nya dipastikan bisa diakses
-   publik (HTTP 200, terbaca sebagai MP4).
-2. **Nomor telepon dihapus seluruhnya.** Bukan hanya kartu WhatsApp di bagian
-   kontak, tapi juga `PROFILE.phone`, `PROFILE.phoneRaw`, dan field
-   `telephone` di dalam data terstruktur Schema.org di `<head>`.
-
-### Kenapa yang di Schema.org juga harus dihapus
-
-Menghapus kartu WhatsApp saja tidak cukup. Nomor itu masih tertulis di blok
-JSON-LD di dalam `<head>` — tidak terlihat mata, tapi justru **itu yang dibaca
-mesin**: crawler, scraper, dan pengindeks. Blok itu ada supaya Google
-mengenali halaman ini sebagai profil orang, jadi apa pun yang ditaruh di sana
-memang dimaksudkan untuk dipanen.
-
-Diuji: `0` kemunculan nomor di seluruh berkas, tidak ada tautan `tel:`, dan
-kartu kontak tersisa **5** (Email, LinkedIn, Instagram, TikTok, Based in).
-
-Sekalian: poster PDF lokal milik #CariMukaLo ikut dibuang karena thumbnail
-Drive sudah menanganinya — berkasnya menyusut **32 KB**.
-
-## Perubahan v17
-
-1. **Semua efek kursor dihapus** — cursor trail (14 bulatan pengikut), cursor
-   ring, dan parallaks foto yang mengikuti gerak mouse. CSS, JS, dan
-   pemanggilnya dibuang; sisa referensi **nol**.
-2. **Tombol Motion di header** — satu tombol untuk menyalakan/mematikan seluruh
-   animasi, pilihannya disimpan dan bertahan setelah halaman dimuat ulang.
-3. **Pemberitahuan sekali** untuk pengunjung yang sistemnya meminta kurangi
-   gerak, supaya situs yang membeku tidak disangka rusak.
-
-## Kenapa animasinya jalan di MacBook tapi mati di laptop Windows
-
-Bukan karena browser atau kodenya berbeda. Penyebabnya satu setelan sistem.
-
-Situs ini menghormati `prefers-reduced-motion` — standar aksesibilitas yang
-mematikan animasi untuk orang yang terganggu oleh gerakan (vertigo, migrain,
-mabuk gerak). Ketika browser melaporkan `reduce`, seluruh animasi dekoratif
-dimatikan.
-
-Bedanya:
-
-- **macOS** — "Reduce motion" ada di Accessibility, mati secara bawaan, dan
-  hampir tidak pernah dinyalakan. Jadi situsnya hidup.
-- **Windows** — "Animation effects" (Settings → Accessibility → Visual
-  effects) sering mati karena **Battery Saver** atau setelan bawaan pabrik
-  laptop. Browser lalu melaporkan `reduce`, dan situsnya membeku.
-
-Sudah diuji dengan mengemulasi kedua kondisi. Hasil sebelum perbaikan:
-
-| Kondisi | Hiasan hero | Bentuk showreel |
+| # | Halaman | Media |
 |---|---|---|
-| `no-preference` (Mac) | `hdFloat` berjalan | `rbFloat` berjalan |
-| `reduce` (Windows) | `none` | `none` |
-
-### Solusinya
-
-Mematikan dukungan `prefers-reduced-motion` bukan pilihan — itu setelan
-aksesibilitas sungguhan, dan ada orang yang benar-benar membutuhkannya.
-Jadi yang ditambahkan adalah **jalan keluar bagi pengunjung**.
-
-Semua aturan reduced-motion (11 blok) dipindah ke satu `<style id="rmGuard">`
-terpisah. Stylesheet itu bisa dimatikan seluruhnya lewat satu baris
-(`rmGuard.disabled = true`), sehingga animasi bisa dipaksa menyala tanpa perlu
-menulis ulang satu per satu aturannya.
-
-Di sisi JS, pertanyaan "boleh beranimasi?" dulu dijawab di enam tempat
-terpisah lewat `matchMedia`. Sekarang semuanya lewat satu fungsi `REDUCE()`
-yang membaca `data-motion` pada `<html>`: `auto` (ikut sistem), `on`
-(paksa nyala), `off` (paksa mati). Tanpa penyatuan itu, pilihan pengunjung
-mustahil dihormati di semua tempat sekaligus.
-
-Hasil uji setelah perbaikan:
-
-| Kondisi | Awal | Setelah klik tombol | Setelah reload |
-|---|---|---|---|
-| `reduce` | animasi mati | **menyala** | tetap menyala |
-| `no-preference` | animasi nyala | **mati** | tetap mati |
-
-### Kalau ingin memperbaikinya di Windows itu sendiri
-
-Settings → Accessibility → Visual effects → **Animation effects: On**.
-Perlu juga memastikan Battery Saver tidak menyala, karena Battery Saver
-mematikan animasi walau setelan di atas sudah On.
-
-## Perubahan v16
-
-1. **Doodle tidak lagi bertabrakan.** Sapuan biru dipindah dari bawah ANDHIKA
-   ke kanan atas, dan lingkaran kuning dipendekkan supaya tidak menyentuh chip
-   "Brand Marketing". Diuji dengan membandingkan kotak batas tiap doodle —
-   keempat pasangan **tidak bersinggungan**.
-2. **Paragraf showreel jadi serif tegak**, bukan miring.
-3. **Lama praktik dihitung otomatis** dari Januari 2023 ke tanggal hari ini.
-4. **Roadmap jadi 4 simpul menurun**, tanggal ujungnya ikut hitungan yang sama.
-5. **Isi bubble diganti kutipan perjalanan**, 5–6 kata per simpul.
-
-### Kenapa sapuan biru harus pindah, bukan sekadar digeser
-
-Lingkaran kuning itu elips melebar. Elips mencapai titik TERTINGGI-nya di
-tengah, tapi di daerah kiri-atas kurvanya sedang naik tajam — dan persis di
-situlah garis bawah ANDHIKA berada. Digeser sedikit ke mana pun, keduanya
-tetap berpotongan karena keduanya memperebutkan pita ruang yang sama. Kanan
-atas adalah satu-satunya area di dekat nama yang tidak pernah dilewati
-lingkaran sama sekali.
-
-### Kenapa lama praktik tidak ditulis tangan
-
-"3 tahun" yang diketik hari ini akan tetap berbunyi 3 tahun di 2028. Sekarang
-yang disimpan hanya titik mulainya (`PRACTICE_START`), sisanya dihitung dari
-tanggal hari ini setiap kali halaman dibuka.
-
-Bulannya dihitung dengan **selisih kalender**, bukan jumlah hari dibagi 30,4.
-Kalau memakai pembagian, Januari→Agustus kadang jatuh ke 6 bulan karena
-panjang bulan berbeda-beda. Diuji di enam tanggal:
-
-| Tanggal | Hasil |
-|---|---|
-| 16 Aug 2026 | 3 yr 7 mo · Jan 2023 — Aug 2026 |
-| 1 Sep 2026 | 3 yr 8 mo · Jan 2023 — Sep 2026 |
-| 1 Jan 2027 | 4 yr · Jan 2023 — Jan 2027 |
-| 15 Feb 2027 | 4 yr 1 mo · Jan 2023 — Feb 2027 |
-
-Pas genap tahun, bagian bulannya hilang sendiri — tidak pernah tertulis
-"4 yr 0 mo".
-
-Satuan "yr" dan "mo" ditulis sebagai elemen terpisah (`.sfx`, 0,42em) supaya
-tidak seukuran angkanya; kalau seukuran penuh, "3 yr 7 mo" meluber keluar
-kotak statistik di layar sempit.
-
-### Kenapa roadmap jadi menurun
-
-Versi mendatar gagal begitu simpulnya jadi empat: barisnya terpotong, dan
-panah terakhir di baris atas menunjuk ke kanan padahal simpul berikutnya ada
-di kiri baris bawah — urutannya jadi tidak terbaca. Menurun tidak pernah punya
-masalah itu di lebar berapa pun. Tiap simpul digeser 26px ke kanan dari yang
-sebelumnya supaya terbaca seperti anak tangga yang bergerak maju; di bawah
-560px tangganya dihilangkan karena geserannya memakan lebar yang sudah tidak
-ada.
-
-## Perubahan v15
-
-1. **Doodle pada nama** — tiga coretan stroke tebal (3,4px): lingkaran kuning
-   mengelilingi nama belakang, dua sapuan biru di bawah nama depan, dan
-   percikan kecil di ujung. Semuanya di belakang huruf dan tidak bisa diklik.
-2. **Animasi masuk bounce** — nama dan foto muncul dari `scale: 0`, membesar
-   melewati ukuran akhir (1,08 dan 1,09), lalu mengendap balik. Rotasinya
-   dipasang **berlawanan arah** antara keduanya (−8deg vs +9deg) supaya tidak
-   bergerak seperti satu papan yang sama. Doodle menyusul satu per satu setelah
-   namanya mendarat.
-3. **Judul showreel** jadi tiga kata tanpa titik: *Camera to campaign*.
-4. **Paragraf showreel** dipangkas jadi dua kalimat, tidak lagi per tahun.
-5. **Tiga bubble jadi roadmap** — pin bernomor, jejak titik-titik berpanah di
-   antara simpul, tiap kartu dimiringkan ke arah berbeda supaya terasa
-   ditempel tangan. Simpul terakhir diberi warna kuning sebagai posisi
-   sekarang. Di bawah 1080px jejaknya berputar jadi vertikal.
-
-### Kenapa kelas animasi dipasang lewat JS, bukan langsung di CSS
-
-Kalau animasinya menempel begitu CSS terbaca, ia sudah berjalan sebagian
-sebelum browser sempat melukis apa pun — pengguna mendarat di tengah gerakan
-dan efek "muncul dari nol" itu hilang. Kelas `boot-in` karena itu baru
-dipasang setelah frame pertama benar-benar digambar
-(`requestAnimationFrame` bersarang), dan menunggu foto potret selesai termuat
-supaya nama dan foto memantul bersamaan, bukan susul-menyusul. Ada jaring
-pengaman 1,2 detik kalau gambarnya menggantung.
-
-### Kenapa lingkaran doodle-nya harus lebih tinggi dari barisnya
-
-Percobaan pertama memakai kotak setinggi baris teks, dan hasilnya garisnya
-menembus huruf — terbaca sebagai **pencoretan nama**, bukan penandaan.
-Kotaknya sekarang 78% tinggi wrapper dan digeser naik, jadi garisnya lewat di
-atas dan di bawah huruf.
-
-## Perubahan v14
-
-1. **Hiasan talang hero** — 10 bentuk samar mengisi margin kiri & kanan
-   pembuka: cincin, busur kuning, bidang titik-titik, garis tipis, kotak
-   miring. Dua di antaranya bernafas pelan (19s dan 26s). Semuanya di belakang
-   konten, tidak bisa diklik, dan hilang di bawah 1180px karena di layar sempit
-   memang tidak ada margin untuk diisi.
-2. **Gelinding jadi ease-in** — `cubic-bezier(.55,0,.85,.35)`: berangkat pelan
-   lalu makin cepat, hampir tanpa perlambatan di ujung. Cincin 1,6s, titik
-   1,1s — beda kecepatan supaya keduanya tidak terbaca sebagai satu benda.
-3. **Naskah showreel** diganti jadi cerita perjalanan tiga tahun, dan tiga
-   keyword di bawahnya mengikuti cerita itu (`Campus → broadcast`,
-   `Self-taught`, `Still building`) — bukan lagi menjelaskan isi videonya.
-4. **Poster PDF hilang dari Track Record.** Ini akar masalah tumpang tindih.
-5. **Tombol Share dihapus**, termasuk pendengar JS-nya.
-6. **Alamat email muat satu baris.**
-7. **Jarak stat strip → About dirapatkan.**
-8. **Motif menyambung dari Track Record ke Works** — 7 bentuk dengan kosakata
-   yang sama persis dengan bab Works, kepekatan diturunkan (`.wd--soft`)
-   karena latarnya sudah biru muda.
-
-### Kenapa poster PDF harus dibuang, bukan sekadar ditunda
-
-Dulu halaman PDF portofolio dipakai sebagai tampilan pertama kartu carousel
-sambil menunggu thumbnail Drive. Masalahnya: kalau Drive lambat atau gagal,
-halaman PDF itulah yang tertinggal — dan karena isinya padat teks dan gambar
-kecil, ia bertabrakan dengan label nomor, tag periode, dan judul yang
-ditumpuk di atasnya. Hasilnya kartu yang tidak terbaca.
-
-Sekarang kartunya **hanya** memakai thumbnail Drive. Selagi menunggu, yang
-tampil adalah monogram organisasi — bersih, satu gaya dengan situs, tidak
-pernah tumpang tindih.
-
-Sekalian diperbaiki: gambar carousel tidak lagi `loading="lazy"`. Kartu di
-luar layar tidak ikut dimuat oleh lazy-loading, jadi saat carousel digeser
-kartunya sempat kosong. Dengan hanya 6 gambar, memuat semuanya sekaligus jauh
-lebih murah daripada risiko kartu kosong. Diuji: **6/6 termuat**.
-
-### Kenapa email tadi terpotong
-
-`word-break: break-word` memenggal di tengah kata begitu barisnya penuh —
-makanya tersisa satu huruf `m` sendirian. Sekarang nilai yang lebih panjang
-dari 22 karakter dapat kelas `.citem--long` dengan ukuran huruf sendiri
-(.78rem), jadi alamatnya muat utuh dalam satu baris. Mengecilkan SEMUA nilai
-demi satu kartu hanya akan membuat lima kartu lain terlihat kekecilan tanpa
-alasan.
-
-## Perubahan v13
-
-1. **Segitiga berpusat tepat di mata kiri.** Titik matanya diukur langsung dari
-   foto (57,8% x / 34,0% y dari lingkaran biru) dengan cara memasang grid di
-   atas crop wajah, bukan dikira-kira. Nilai `translate` lalu dicari numerik
-   lewat sapuan di browser: `-132% 170%`, meleset **1,4 px**.
-2. **Baris peran hero** dipangkas jadi "Campaign execution, KOL management &
-   creative production" — bagian "— open to full-time roles" dihapus.
-3. **Showreel jadi section penuh berlatar biru** dengan lima bentuk yang
-   bergerak terus-menerus (bukan hanya saat hover). Ritmenya sengaja tidak sama
-   — 13s / 17s / 23s / 29s / 31s — supaya polanya tidak pernah berulang serempak
-   dan tidak terbaca sebagai loop. Dimatikan otomatis pada
-   `prefers-reduced-motion`.
-4. **Video: rantai sumber + retry.**
-
-### Kenapa videonya tadi tidak mau jalan
-
-Hampir pasti karena file MP4-nya tidak berada di tempat yang dicari HTML.
-Gejalanya cocok persis: tombol suara tetap berganti-ganti (itu murni CSS),
-tapi tidak ada gambar bergerak dan tidak ada suara — karena video-nya memang
-tidak pernah termuat.
-
-Sekarang HTML mencoba empat lokasi berurutan:
-
-```
-assets/video/showcase.mp4   →   showcase.mp4
-    →   assets/showcase.mp4   →   Portfolio_Reborn_-_Trimmed.mp4
-```
-
-Jadi menaruh MP4 bersebelahan dengan `index.html` pun tetap jalan. Kalau
-keempatnya tidak ketemu, kartunya menampilkan keterangan yang menyebut file
-mana yang dicari — bukan diam seperti kartu rusak.
-
-Ditambah: `play()` dicoba ulang pada interaksi pertama pengguna
-(`pointerdown` / `keydown` / `touchstart` / `scroll`) dan saat tab kembali
-aktif, karena sebagian browser menahan autoplay meski video-nya bisu.
-
-Diuji di tiga skenario penempatan file — semuanya berperilaku benar.
-
-## Perubahan v12
-
-1. **Titik kuning polos** — pip gelap di dalamnya dihapus.
-2. **Cincin menggelinding, bukan teleport** — kotak orbitnya kini berputar
-   180deg (1,5 detik), jadi cincinnya menempuh busur dari kiri bawah ke kanan
-   atas. Sengaja lebih lambat dari titik kuning (1,05 detik) supaya keduanya
-   tidak terbaca sebagai satu benda yang sama.
-3. **Segitiga dikalibrasi ulang** ke mata kiri sesuai sketsa:
-   `translate: -164% 222%`. Titik sasaran diturunkan dari sketsa sebagai
-   fraksi lingkaran biru (55,2% x / 45,5% y), lalu dicari numerik lewat sapuan
-   di browser. Hasil akhir meleset **2,2 px**.
-4. **Panggung video diperbesar** dari 300px jadi **400px** (400×474 desktop,
-   320×379 mobile).
-
-### Catatan penting soal "menggelinding"
-
-Lingkaran sempurna punya simetri putar — **putarannya sendiri secara harfiah
-tidak terlihat** tanpa penanda di dalamnya. Itulah fungsi pip yang sekarang
-dihapus. Setelah pip hilang, kesan menggelinding hanya bisa datang dari
-**lintasan melengkungnya**, bukan dari putaran benda itu sendiri. Karena itu
-cincin diubah dari teleport-fade jadi ikut menempuh busur: itu satu-satunya
-gerakan yang benar-benar kelihatan pada bentuk bulat polos.
-
-## Perubahan v11
-
-### 1. Koreografi tiga bentuk di hero
-
-| Bentuk | Diam | Saat hover |
-|---|---|---|
-| Segitiga kuning | kanan atas foto | turun ke garis mata, lancip menghadap bawah, opacity 0,7 |
-| Titik kuning | kiri bawah, di tepi lingkaran | menggelinding setengah keliling ke kanan atas |
-| Cincin outline | kiri, meleset dari lingkaran | teleport fade ke sisi kanan |
-
-**Titik kuning punya pip gelap di dalamnya** (`.shot__dot::after`). Tanpa itu,
-bola polos yang berputar tidak terlihat berputar sama sekali — geraknya cuma
-terbaca sebagai melayang mengikuti busur, bukan menggelinding. Pip inilah yang
-membuat 1080deg putarannya terlihat.
-
-**Cincinnya ada DUA salinan**, `.shot__ring--a` (asal) dan `.shot__ring--b`
-(tujuan). Yang beralih hanya opacity-nya, bukan posisinya — itu yang membuat
-efeknya terbaca sebagai teleport, bukan meluncur.
-
-Kenapa dua salinan dan bukan satu yang dipindah: transisi CSS **tidak bisa**
-membawa opacity 1 → 0 → 1 dalam satu jalur. Dengan dua elemen, transisi di
-keadaan dasar mengatur animasi KELUAR dan transisi di keadaan hover mengatur
-animasi MASUK. Dua-duanya mulus, tanpa JS, dan tidak ada animasi yang berjalan
-saat diam — poin terakhir ini penting, itu sumber bug getar yang lama.
-
-Durasi diseragamkan: masuk ±1,05–1,15 detik, keluar ±0,8 detik. Sebelumnya
-2,8–3,6 detik dan terasa menggantung.
-
-### 2. Bug kedap-kedip thumbnail — sudah diperbaiki
-
-**Akar masalahnya** ada di `upgradeThumbs()`. Kode lama:
-
-```js
-img.style.opacity = ".4";   // ← diredupkan DULU
-img.src = url;              // ← baru src diganti
-img.onload = () => (img.style.opacity = "1");
-```
-
-Urutan yang terlihat pengguna: poster lokal (halaman PDF portofolio) tampil →
-**meredup ke 40%** → **jeda kosong** sementara gambar Drive di-decode → gambar
-baru muncul. Tiga tahap itulah yang terbaca sebagai kedipan.
-
-Sekarang gambarnya dimuat **dan di-decode penuh di memori** lewat `probe.decode()`
-sebelum `src` ditukar. Karena sudah ada di cache dan sudah ter-decode,
-penukarannya selesai dalam satu frame. Tidak ada tahap redup, tidak ada jeda,
-tidak ada kedipan.
-
-Hasil uji: 35 kartu, 0 yang punya `style.opacity` tersisa, 0 gambar rusak.
-
-### 3. Showreel
-
-Video vertikal di bawah hero, sebelum stat strip.
-
-- Berjalan terus, loop, **tanpa suara**
-- Klik → suara menyala · klik lagi → bisu
-- Otomatis pause **dan kembali bisu** saat tergulir keluar layar
-- Petunjuk "Tap for sound" hilang permanen setelah interaksi pertama
-- Bisa difokus keyboard; Enter/Spasi mengaktifkan suara
-
-**Kenapa harus muted di awal:** browser hanya mengizinkan autoplay untuk video
-yang muted. Klik pertama pengguna adalah izin yang dibutuhkan browser untuk
-membunyikannya. Ini perilaku yang benar, bukan keterbatasan.
-
-**Kenapa embed Drive tidak dipakai:** iframe `/preview` Google Drive tidak
-mengizinkan autoplay-loop-muted, dan suaranya tidak bisa dikontrol dari luar
-karena cross-origin. Untuk "loop tanpa suara, klik baru bersuara" wajib file
-MP4 asli.
-
-Kompresi dari sumber: 1080×1280 / 27 MB → 720×854 / 5,0 MB (h264 CRF 30,
-AAC 96k, `+faststart`). Poster-nya ter-embed sebagai data URI di HTML, jadi
-kalau videonya gagal dimuat frame pertamanya tetap tampil — tidak pernah kotak
-hitam kosong.
-
-**Konsekuensi:** versi satu-file murni tidak lagi mungkin untuk video. Menanam
-5 MB sebagai data URI membuat HTML membengkak jadi ±8,8 MB dan lambat dibuka.
-
-Untuk mengganti videonya nanti: timpa `assets/video/showcase.mp4`. Kalau
-rasionya berubah dari 27:32, sesuaikan `aspect-ratio` di `.reel__stage`.
-
-### 4. Teks hero dan meta
-
-Baris peran diganti dari "Brand Marketing Intern at MAP Active" — situs ini
-untuk melamar kerja baru, bukan memajang posisi yang akan berakhir 30 September.
-
-Sekarang: chip **Brand Marketing** + "Campaign execution, KOL management &
-creative production — open to full-time roles".
-
-`<title>`, `meta description`, dan `og:description` ikut diperbarui; ketiganya
-masih menyebut MAP Active.
-
-## Status verifikasi v11
-
-Diuji di Chrome headless, desktop 1440px dan mobile 390px.
-
-- **Nol error JavaScript** di kedua ukuran
-- Bentuk: cincin 2 salinan terdeteksi, opacity beralih 1→0 dan 0→1 saat hover,
-  ketiganya kembali ke koordinat semula persis setelah kursor pergi
-- Segitiga mendarat di y=425 (garis mata pada foto y=290–680), opacity 0,7
-- Titik berpindah x=842 → x=1202, rotate 1080deg
-- Thumbnail: 35 kartu, 0 manipulasi opacity, 0 gambar rusak
-- Showreel: autoplay muted loop jalan, klik → unmute, klik tombol → mute,
-  scroll keluar → pause + mute
-- Mobile 390px: panggung 300×356, **tidak ada overflow horizontal**
-  (scrollWidth 390 = clientWidth 390)
-
-## Yang belum selesai (dari v10)
-
-1. **Turunkan permission folder Drive** dari Editor (`role: writer, type: anyone`)
-   ke Viewer — sekarang siapa pun yang punya link bisa menghapus isinya.
-2. **Deploy Vercel gagal** — akun `adhityaster-5826's projects` menolak dengan
-   `403 forbidden — You don't have permission to create a project`.
-   Pakai Netlify drop.
-
-## Cara update konten
-
-Edit blok data di dalam `index.html` (cari `const WORKS`). Untuk memberi karya
-lain panel studi kasus: tambahkan `poster`, `points: []`,
-`metrics: [{icon, v, label}]`, dan `headline: {v, label}`.
-Ikon metrik yang tersedia: `like`, `comment`, `repost`, `save`.
+| 01 | 11.11 LIVE push · Super Brand Day | 3 TikTok (260K+ / 200K+ / 100K+) + 1 foto |
+| 02 | On-ground activations | 4 grup: IMX 2026 (2 video, 3 foto) · Shake-Out Run (2) · Kahf x BYON (4) · ASEAN Cup (IG + 2) |
+| 03 | Kahf x BYON · Road to Grand Prix 2026 | 3 TikTok |
+| 04 | Content pipeline | 3 key visual / brief |
+
+Perilakunya:
+
+- Halaman aktif di tengah; halaman sebelumnya mengintip di atas dan halaman
+  berikutnya di bawah, **opacity rendah dan miring menjauh** (`rotateX` dengan
+  `perspective`) — efek drum 3D.
+- Tombol **panah bawah** berlabel "Next highlight · 2 / 4" + judul halaman
+  berikutnya, chevron yang memantul, dan cincin berdenyut sampai pengguna
+  pertama kali berpindah halaman. Ada juga tombol atas, rel titik di kanan,
+  dan halaman yang mengintip bisa diklik langsung.
+- Pindah halaman: halaman bawah **naik ke tengah sambil opacity-nya penuh**
+  (0,82 detik).
+- Juga bisa lewat keyboard (↓ ↑ PageDown PageUp), roda mouse, dan usap di
+  layar sentuh. Roda/usap baru membalik halaman setelah isi halaman mentok;
+  satu kibasan trackpad = satu halaman (diuji: sebelum perbaikan kunci
+  inersia, satu kibasan melompati 3 halaman).
+- Klik media → penampil di dalam panel: TikTok (player resmi), video lokal,
+  foto ukuran penuh, embed Instagram, dengan tombol "Open original".
+  Esc menutup penampil dulu, baru panelnya.
+
+Peran lain tetap memakai panel teks biasa.
+
+### 2. Disamakan dengan CV terbaru
+
+- CV baru tertanam; CV lama tidak tersisa (tepat 1 PDF di berkas).
+- Summary = summary CV, kata per kata.
+- Hero: chip **Social Media Management** + "Content calendars, campaign briefs
+  & talent-led content". Chip foto: Social Media · Media Production · Art Direction.
+- `<title>`, meta description, og:description, keywords, dan JSON-LD
+  (`jobTitle`, `worksFor: ParagonCorp`, `knowsAbout`).
+- Pendidikan: + *Relevant coursework: Social Media, Advertising Content
+  Production, Transmedia*.
+- Technical skills = daftar di CV.
+- Wording MAP Active (KOL pool Back to School/Agustus/September; urutan poin
+  desain), OB Golf, dan Transvision disamakan dengan CV.
+- "Seven roles since 2023", statistik "Teams & companies" 6 → 7.
+
+### 3. Kedipan thumbnail dihilangkan
+
+Penyebab: kartu menampilkan poster lama dulu, lalu menukarnya dengan
+thumbnail Drive/YouTube begitu termuat. Sekarang thumbnail final itu yang
+ditanam langsung saat build — **28 kartu Works, 6 kartu Track Record, 2 gambar
+MedEdu**. Tidak ada penukaran di browser.
+
+Diuji: **0 permintaan** ke googleusercontent / drive thumbnail / ytimg saat
+halaman dibuka. Efek samping yang bagus: thumbnail tidak lagi bergantung pada
+permission folder Drive.
+
+### 4. Dibangun ulang di atas situs live
+
+Situs live ternyata masih build v18/v19; v20 dan v21 belum pernah ter-deploy.
+v22 dibangun ulang di atas berkas live dengan menerapkan ulang seluruh
+perubahan v20 dan v21 (blok sorotan TSOF + trailer, angka 3.9M, perbaikan
+urutan pause video, teks galat Inggris).
+
+## Hasil uji
+
+Chrome headless, 1440px dan 390px: **0 error JavaScript**, 35 karya,
+7 kartu Track Record (semua gambar ter-embed), 0 overflow horizontal, pager
+4 halaman berpindah benar lewat tombol, keyboard, dan roda mouse; penampil
+TikTok/foto/video terbuka dan tertutup benar.
