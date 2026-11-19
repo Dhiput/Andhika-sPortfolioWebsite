@@ -1,4 +1,4 @@
-# Website Portfolio Andhika Putradhitya — v25
+# Website Portfolio Andhika Putradhitya — v27
 
 ## Isi paket
 
@@ -8,12 +8,58 @@ assets/video/showcase.mp4          — showreel hero, 5,0 MB
 assets/video/tsof-trailer.mp4      — trailer blok sorotan The Soul of Founder, 1,1 MB
 assets/video/kahf-imx_v1.mp4       — Tanya Kahf Bro (IMX), 5,0 MB
 assets/video/kahf-imx_v2.mp4       — Tanya Kahf Bro (IMX), 3,6 MB
+assets/video/kahf-tt1..4.mp4       — 4 klip TikTok Kahf, total 12,9 MB
 assets/img/kahf/*.webp             — 24 gambar bukti Paragon (tile + penampil), resolusi penuh
 assets/img/xp/*.webp               — 7 gambar kartu Track Record, 1800 px
 ```
 
 **Seluruh folder harus ikut.** Deploy: `vercel --prod` dari dalam folder ini
 (pilih *Link to existing project*), atau seret folder ke app.netlify.com/drop.
+
+## Perubahan v27 — CV 19 November (revisi 2)
+
+- CV terbaru tertanam (tepat 1 PDF).
+- Paragon halaman 3: "…around the fighters’ brotherhood" (kata "and respect" dihapus, sesuai CV).
+- Paragon halaman 4: judul "TikTok & Instagram", teks = CV (17 video promo
+  e-commerce di TikTok; di Instagram: Story 11.11 untuk 6 kanal, feed concept
+  Bigbet, BAU feed brief Sunscreen Acne Calming & Deodorant Antiperspirant
+  Invisible Care; 6 campaign briefs). Galeri bukti kembali: key visual Bigbet,
+  brief Sunscreen Acne Calming, dan brief konten Super Brand Day (Promo 48) —
+  brief dipindah dari halaman 1 ke sini karena masuk kategori planning/konsep
+  konten.
+- Subjudul Paragon: "Kahf · TikTok & Instagram" (CV tidak lagi menyebut marketplaces).
+
+## Perubahan v26
+
+### Disamakan dengan CV 19 November 2026
+- CV baru tertanam (tepat 1 PDF, CV lama tidak tersisa).
+- Pendidikan: **Diploma IV (D4) in Media Production · GPA 3.83 / 4.00**. Kotak
+  statistik GPA 3.85 → **3.83 (Final GPA)**; 3.85 tetap disebut sebagai prestasi
+  IPK tertinggi semester 1–3, sama seperti di CV.
+- Paragon halaman 1: teks = CV ("Wrote the Super Brand Day brief…"). Angka
+  260K+/200K+/100K+ dihapus dari tile karena CV tidak lagi mengklaimnya. Brief
+  Super Brand Day pindah ke halaman ini.
+- Paragon halaman 2: "Contributed to 3 on-ground activations…".
+- Paragon halaman 4: teks = CV (17 video promo e-commerce, Story 11.11 untuk 6
+  kanal). Key visual Sunscreen dan Bigbet dihapus karena klaimnya dicabut dari
+  CV; diganti tiga angka besar.
+- MAP Active poin 1: "Planned content and designed assets for the social media
+  workstream of 3 major campaigns… built around 5 sporting moments".
+- JSON-LD: `url` = https://dhika-portfolio-website.vercel.app/ (alamat di CV).
+
+### Video TikTok diputar langsung di situs
+Player embed TikTok tidak dipakai lagi — di Chrome desktop ia menolak dengan
+"Player authentication failed". Empat klip sekarang file sendiri
+(`assets/video/kahf-tt1..4.mp4`, H.264 720p, total 12,9 MB) dan diputar di
+penampil situs, di laptop maupun HP; tombol "Open original" tetap ke TikTok.
+
+Dua klip (King Haris, KKCal) tayang sebagai iklan/promoted post, dan TikTok
+tidak menyediakan file videonya di luar aplikasi. Untuk dua ini penampil
+menampilkan kartu bersih (poster + "Watch on TikTok"), bukan layar error.
+Kirim MP4 aslinya dan keduanya bisa diputar di situs juga.
+
+Diuji: 0 request ke tiktok.com saat penampil dibuka, video `readyState 4`,
+0 error JS di 1440px dan 390px.
 
 ## Perubahan v25
 
